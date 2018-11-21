@@ -28,7 +28,7 @@ function mario() {
 
   // WRITE YOUR EXERCISE 1 CODE HERE
 let Height = +prompt("Enter height")
-let div = getElementById('mario-easy-output')
+let div = document.getElementById("mario-easy-output");
 let output = '<code>';
 
 if(Height <= 0 && Height > 23){
@@ -266,7 +266,32 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
+  let i = 1
+let score1;
+let score2;
+let score3;
+let score4;
+let score5;
+let score6;
 
+do{
+  scores = prompt('Please enter 6 numbers between 1 and 10');
+  scores = parseFloat(scores);
+
+  i++;
+
+} while (isnNan(scores) || scores < 0 || i > 7);
+
+score1 = parseFloat(scores[1]);
+score2 = parseFloat(scores[2]);
+score3 = parseFloat(scores[3]);
+score4 = parseFloat(scores[4]);
+score5 = parseFloat(scores[5]);
+score6 = parseFloat(scores[6]);
+
+console.log(score[1], score[2], score[3], score[4], score[5], score[6])
+
+scores.pus()
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
    *       six of the judges' scores.
