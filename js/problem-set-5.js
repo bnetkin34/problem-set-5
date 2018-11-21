@@ -27,6 +27,13 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+let Height = +prompt("Enter height")
+let div = getElementById('mario-easy-output')
+let output = '<code>';
+
+if(Height <= 0 && Height > 23){
+  conidition = false
+}
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
