@@ -266,32 +266,46 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
-  let i = 1
-let score1;
-let score2;
-let score3;
-let score4;
-let score5;
-let score6;
+do{
+  score1 = Number(prompt('Please enter a value between 0 and 10'));
+
+} while (score1 < 0.0 || score1 > 10.0|| !Number.isInteger(score1));
+scores.push(score1);
 
 do{
-  scores = prompt('Please enter 6 numbers between 1 and 10');
-  scores = parseFloat(scores);
+  score2 = Number(prompt('Please enter a value between 0 and 10'));
 
-  i++;
+} while (score2 < 0.0 || score2 > 10.0|| !Number.isInteger(score2));
+scores.push(score2);
 
-} while (isnNan(scores) || scores < 0 || i > 7);
+do{
+  score3 = Number(prompt('Please enter a value between 0 and 10'));
 
-score1 = parseFloat(scores[1]);
-score2 = parseFloat(scores[2]);
-score3 = parseFloat(scores[3]);
-score4 = parseFloat(scores[4]);
-score5 = parseFloat(scores[5]);
-score6 = parseFloat(scores[6]);
+} while (score3 < 0.0 || score3 > 10.0|| !Number.isInteger(score3));
+scores.push(score3);
 
-console.log(score[1], score[2], score[3], score[4], score[5], score[6])
+do{
+  score4 = Number(prompt('Please enter a value between 0 and 10'));
 
-scores.pus()
+} while (score4 < 0.0 || score4 > 10.0|| !Number.isInteger(score4));
+scores.push(score4);
+
+do{
+  score5 = Number(prompt('Please enter a value between 0 and 10'));
+
+} while (score5 < 0.0 || score5 > 10.0|| !Number.isInteger(score5));
+scores.push(score5);
+
+do{
+  score6 = Number(prompt('Please enter a value between 0 and 10'));
+
+} while (score6 < 0.0 || score6 > 10.0|| !Number.isInteger(score6));
+scores.push(score6);
+
+let Total = Number(score1) + Number(score2) + Number(score3) + Number(score4) + Number(score5) + Number(score6);
+let average = (Total - Math.max(score1, score2, score3, score4, score5, score6) - Math.min(score1, score2, score3, score4, score5, score6)) / 4;
+let p = document.getElementById('gymnastics-output');
+p.innerHTML = 'Discarded: ' + Math.min(score1, score2, score3, score4, score5, score6) + ', ' + Math.max(score1, score2, score3, score4, score5, score6) + '<br />Score: ' + average.toFixed(2);
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
    *       six of the judges' scores.
