@@ -365,11 +365,79 @@ function reportCard() {
   let homeworks = 0; // DO NOT MODIFY
   ///////////////////// DO NOT MODIFY
 
+  let testscore;
+  let quizscore;
+  let homeworkscore;
+  let testAverage;
+  let quizAverage;
+  let homeworkAverage;
+  let totalAverage;
   /*
    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
    *       representative of the number of tests, quizzes, and homework
    *       grades the user enters, respectively.
    */
+
+testscore = prompt('Please enter a positive number between 1 and 100 for your test score. Enter -1 if you have entered all of your scores.');
+   while (testscore) {
+     testscore = parseFloat(testscore);
+
+  if (testscore == -1){
+    testscore = false;
+    break;
+  }
+else if(testscore <= 100.00 && 0.0 <= testscore)
+  {
+    tests += 1;
+    testTotal += testscore;
+  }
+  else{
+  }
+  testscore = prompt('Please enter a positive number between 1 and 100 for your test score. Enter -1 if you have entered all of your scores.')
+}
+quizscore = prompt('Please enter a positive number between 1 and 100 for your quiz score. Enter -1 if you have entered all of your scores.');
+while (quizscore) {
+  quizscore = parseFloat(quizscore);
+
+if (quizscore == -1){
+ quizscore = false;
+ break;
+  }
+else if(quizscore <= 100.00 && 0.0 <= quizscore)
+{
+ quizzes += 1;
+ quizTotal += quizscore;
+}
+else{
+}
+quizscore = prompt('Please enter a positive number between 1 and 100 for your quiz score. Enter -1 if you have entered all of your scores.')
+}
+
+homeworkscore = prompt('Please enter a positive number between 1 and 100 for your homework score. Enter -1 if you have entered all of your scores.');
+while (homeworkscore) {
+  homeworkscore = parseFloat(homeworkscore);
+
+if (homeworkscore == -1){
+ homeworkscore = false;
+ break;
+}
+else if(homeworkscore <= 100.00 && 0.0 <= homeworkscore)
+{
+ homeworks += 1;
+ homeworkTotal += homeworkscore;
+}
+else{
+}
+homeworkscore = prompt('Please enter a positive number between 1 and 100 for your homework score. Enter -1 if you have entered all of your scores.')
+}
+
+testAverage = testTotal/tests;
+quizAverage = quizTotal/quizzes;
+homeworkAverage = homeworkTotal/homeworks;
+totalAverage = (testAverage * 0.6) + (quizAverage * 0.3) + (homeworkAverage * 0.1);
+
+document.getElementById("report-card-output").innerHTML = "Tests: " + testAverage.toFixed(2) + "</br>Quizzes: " + quizAverage.toFixed(2) + "</br>Homework: " + homeworkAverage.toFixed(2) + "</br>Grade: " + totalAverage.toFixed(2);
+
 
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
