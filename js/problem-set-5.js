@@ -27,13 +27,15 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-let Height = +prompt("Enter height")
-let div = document.getElementById("mario-easy-output");
-let output = '<code>';
+// let i = 1;
+// let hash = '#';
+//
+// do {
+//   height = prompt('Please enter a positive integer between 1 and 23 for your height');
+//   height = parseFloat(height);
+//   if(isNaN(height) || height < 0 || height > 23 || Number.isInteger(height) == false){
+//   }
 
-if(Height <= 0 && Height > 23){
-  conidition = false
-}
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -121,6 +123,20 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
+let i;
+let value;
+let firstSum;
+let secondSum;
+let cardInt;
+let cardArray;
+
+do {
+  card = prompt("Please enter your credit card number.");
+  cardInt = parseFloat(card);
+}
+while (isNan(cardInt) || Number.isInteger(cardInt) == false);
+
+cardArray = array.from(card);
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
