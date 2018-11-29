@@ -123,20 +123,88 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-let i;
-let value;
-let firstSum;
-let secondSum;
-let cardInt;
-let cardArray;
+  let value;
+     let firstsum;
+     let secondsum;
+     let totalsum;
+     let cardInt;
+     let cardArray;
+     let cardType;
 
-do {
-  card = prompt("Please enter your credit card number.");
-  cardInt = parseFloat(card);
-}
-while (isNan(cardInt) || Number.isInteger(cardInt) == false);
+     while (true) {
+         card = prompt("Enter Credit Card");
+         cardInt = Number(card);
+         if (Number.isInteger(Number(card))){
+             break;
+         }
+       }
 
-cardArray = array.from(card);
+
+     cardArray = Array.from(card);
+
+  for (let i = cardInt.length - 1; i >=0; i-=2)
+  {
+    value = cardArray[i];
+    firstsum = firstsum + value*2;
+  }
+
+  for (let j = cardInt.length; j >=0; j-=2)
+  {
+    value = cardArray[j];
+    secondsum = secondsum + value;
+  }
+
+  totalsum = firstsum + secondsum;
+
+  if (totalsum % 10 === 0) {
+
+    if (cardArray[cardArray.length-2] === "3") {
+      if (cardArray[cardArray.length-1] === "4" || cardArray[cardArray.length-1] === "7") {
+        if (cardArray.length === 15) {
+          cardType = americanExpress;
+        }
+      }
+    }
+    if (cardArray[cardArray.length-2] === "5") {
+      if (cardArray[cardArray.length-1] === "4" || cardArray[cardArray.length-1] === "7") {
+        if (cardArray.length === 16) {
+          cardType = Mastercard
+        }
+      }
+    }
+    if (cardArray[cardArray.length-2] === "3") {
+      if (cardArray[cardArray.length-1] === "4" || cardArray[cardArray.length-1] === "7") {
+        if (cardArray.length === 13 || cardArray.length === 16) {
+          cardType = Visa
+        }
+      }
+    }
+
+    // if (cardInt.length == 15 && (cardArray[0] == 3 && (cardArray[1] == 4 || cardArray[1] == 7))){
+    //   document.getElementById("credit-output").innerHTML = "<img src ="  + "./images/amex.png>";
+    // }
+    //
+    // if (cardInt.length == 16 && (card[0] == 5 && (cardArray[1] == 1 || cardArray[1] == 2 || cardArray[1] == 3 || cardArray[1] == 4 || cardArray[1] == 5))) {
+    //   document.getElementById("credit-output").innerHTML = "<img src ="  + "./images/mastercard.png>";
+    // }
+    //
+    // if (cardInt.length == 13 || (cardInt.length == 16 && (cardArray[0] == 4))) {
+    //   document.getElementById("credit-output").innerHTML = "<img src ="  + "./images/visa.png>";
+    // }
+    // else {
+    //   document.getElementById("credit-output").innerHTML = "<img src ="  + "./images/invalid.png>";
+    // }
+  }
+
+  else {
+    console.log('Invalid');
+    document.getElementById("credit-output").innerHTML = "Invalid";
+  }
+
+  console.log(typeof cardArray);
+  console.log(typeof cardInt);
+
+
 
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
@@ -176,7 +244,34 @@ cardArray = array.from(card);
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
+      let answer = Math.floor(Math.random() * (999)) + 1;
+      let value;
+      let attempts = 0;
 
+    do {
+      value = prompt('Please try to guess the integer number between 1 and 1000');
+      value = parseFloat(number);
+
+      if  (isNaN(value) || value < 1 || value > 1000 || Number.isInteger(value) == false) {
+        document.getElementById("guess-output").innerHTML = 'Please enter an integer between 1 and 1000';
+        continue;
+      }
+
+      attempts++;
+
+      if (value > answer){
+        alert('Too large. Guess lower.');
+        continue;
+      }
+
+      if (number < answer) {
+        alert('Too small. Guess higher.');
+        continue;
+      }
+
+      } while (number !== answer);
+
+    document.getElementById("guess-output").innerHTML = ('Good job, you guessed the number ' + answer + ' in '  + attempts + ' tries!');
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
