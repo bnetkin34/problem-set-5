@@ -196,13 +196,13 @@ function credit() {
     // }
   }
 
-  else {
-    console.log('Invalid');
-    document.getElementById("credit-output").innerHTML = "Invalid";
-  }
-
-  console.log(typeof cardArray);
-  console.log(typeof cardInt);
+  // else {
+  //   console.log('Invalid');
+  //   document.getElementById("credit-output").innerHTML = "Invalid";
+  // }
+  //
+  // console.log(typeof cardArray);
+  // console.log(typeof cardInt);
 
 
 
