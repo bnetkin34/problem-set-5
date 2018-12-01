@@ -124,61 +124,52 @@ function credit() {
 
   // WRITE YOUR EXERCISE 3 CODE HERE
   let value;
-     let firstsum;
-     let secondsum;
+     let oddSum = 0;
+     let evenSum = 0;
      let totalsum;
      let cardInt;
      let cardArray;
      let cardType;
 
      while (true) {
-         card = prompt("Enter Credit Card");
+         card = prompt("Please enter your credit card number.");
          cardInt = Number(card);
          if (Number.isInteger(Number(card))){
              break;
          }
        }
 
-
      cardArray = Array.from(card);
 
   for (let i = cardInt.length - 1; i >=0; i-=2)
   {
     value = cardArray[i];
-    firstsum = firstsum + value*2;
+    evenSum = evenSum + value*2;
   }
 
   for (let j = cardInt.length; j >=0; j-=2)
   {
     value = cardArray[j];
-    secondsum = secondsum + value;
+    oddSum = oddSum + value;
   }
 
-  totalsum = firstsum + secondsum;
+  totalsum = evenSum + oddSum;
 
   if (totalsum % 10 === 0) {
 
-    if (cardArray[cardArray.length-2] === "3") {
-      if (cardArray[cardArray.length-1] === "4" || cardArray[cardArray.length-1] === "7") {
-        if (cardArray.length === 15) {
-          cardType = americanExpress;
+    if (cardArray.length == 15 && (card[0] == 3 &&(card[1] == 7 || card[1] == 4)) && (oddSum+evenSum) % 10 == 0){
+      document.getElementById("credit-output").innerHTML="<img src ='./images/amex.png'/>";
         }
-      }
+
+   else if (cardArray.length == 16 && (card[0] == 5 && (card[1] == 1 || card[1] == 2 || card[1] == 4 || card[1] == 5 )) && (oddSum+evenSum) % 10 == 0) {
+      document.getElementById("credit-output").innerHTML="<img src ='./images/mastercard.png'/>";
+          }
+
+    else if ((card.length==13 || card.length==16) && card[0]==4 && (oddSum+evenSum)%10==0) {
+      document.getElementById("credit-output").innerHTML="<img src ='./images/visa.png'/>";
     }
-    if (cardArray[cardArray.length-2] === "5") {
-      if (cardArray[cardArray.length-1] === "4" || cardArray[cardArray.length-1] === "7") {
-        if (cardArray.length === 16) {
-          cardType = Mastercard
-        }
-      }
-    }
-    if (cardArray[cardArray.length-2] === "3") {
-      if (cardArray[cardArray.length-1] === "4" || cardArray[cardArray.length-1] === "7") {
-        if (cardArray.length === 13 || cardArray.length === 16) {
-          cardType = Visa
-        }
-      }
-    }
+
+    card = Number(card);
 
     // if (cardInt.length == 15 && (cardArray[0] == 3 && (cardArray[1] == 4 || cardArray[1] == 7))){
     //   document.getElementById("credit-output").innerHTML = "<img src ="  + "./images/amex.png>";
