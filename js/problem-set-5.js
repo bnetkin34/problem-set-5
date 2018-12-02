@@ -27,14 +27,33 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
-// let i = 1;
-// let hash = '#';
-//
-// do {
-//   height = prompt('Please enter a positive integer between 1 and 23 for your height');
-//   height = parseFloat(height);
-//   if(isNaN(height) || height < 0 || height > 23 || Number.isInteger(height) == false){
-//   }
+  while (true){
+    height = prompt("Please enter an integer between 1 and 23.");
+    height = Number(height);
+    if (height >= 1 && height <= 23 && Number.isInteger(height)){
+      break;
+    };
+  };
+
+  let i = 1;
+  let hash = '#';
+  let lines = "<code>";
+  let spaces = height-2;
+
+
+
+  while (i <= height){
+    let a ='';
+    for (let j = 0; j <= spaces; j++){
+       a+='&nbsp;';
+    }
+    spaces--;
+    hash=hash+'#';
+    lines=lines+a+hash+"</br>";
+    i++;
+  }
+    document.getElementById("mario-easy-output").innerHTML=lines;
+  lines = lines + "<code>";
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -70,6 +89,13 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
+  while (true){
+    height = prompt("Please enter an integer between 1 and 23.");
+    height = Number(height);
+    if (height >= 1 && height <= 23 && Number.isInteger(height)){
+      break;
+    };
+  };
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -241,7 +267,7 @@ function guess() {
 
     do {
       value = prompt('Please try to guess the integer number between 1 and 1000');
-      value = parseFloat(number);
+      value = parseFloat(value);
 
       if  (isNaN(value) || value < 1 || value > 1000 || Number.isInteger(value) == false) {
         document.getElementById("guess-output").innerHTML = 'Please enter an integer between 1 and 1000';
@@ -255,12 +281,12 @@ function guess() {
         continue;
       }
 
-      if (number < answer) {
+      if (value < answer) {
         alert('Too small. Guess higher.');
         continue;
       }
 
-      } while (number !== answer);
+    } while (value !== answer);
 
     document.getElementById("guess-output").innerHTML = ('Good job, you guessed the number ' + answer + ' in '  + attempts + ' tries!');
   ////////////////// DO NOT MODIFY
