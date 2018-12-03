@@ -170,7 +170,7 @@ function credit() {
   let secondSum = 0;
   while (true){
     card = prompt("Enter your credit card number: ");
-    if ((card.length == 16 || card.length == 15 || card.length == 13) && Number.isInteger(Number(card))){
+    if (Number.isInteger(Number(card))){
       break;
     }
   }
@@ -203,7 +203,6 @@ function credit() {
   }
 
   card=Number(card);
-
 
 
 
